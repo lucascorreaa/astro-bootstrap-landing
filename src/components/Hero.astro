@@ -1,0 +1,96 @@
+---
+---
+
+<style>
+  /* Tema Dark */
+  .dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+  }
+
+  .dark-mode .navbar,
+  .dark-mode .footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+  }
+
+  .dark-mode a {
+    color: #f8f9fa;
+  }
+
+  .theme-toggle-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+</style>
+
+<!-- Botão de alternância de tema (Toggle) -->
+<button id="theme-toggle" class="btn btn-outline-dark theme-toggle-btn" data-bs-toggle="button" aria-pressed="false">
+  🌙 Modo Escuro
+</button>
+
+<!-- Seção Suporte de Domingo -->
+<section class="hero-section bg-primary text-white text-center py-5 full-screen">
+  <div>
+    <h1>Suporte de Domingo</h1>
+    <p class="lead">Soluções acessíveis para tecnologia e suporte digital.</p>
+    <a href="https://suportededomingo.com.br" class="btn btn-light btn-lg" target="_blank">
+      Acessar Suporte de Domingo
+    </a>
+  </div>
+</section>
+
+<!-- Seção Professor Corrêa -->
+<section class="hero-section bg-secondary text-white text-center py-5 full-screen">
+  <div>
+    <h1>Professor Corrêa</h1>
+    <p class="lead">Educador, desenvolvedor e especialista em produtos digitais.</p>
+    <a href="https://github.com/lucascorreaa" class="btn btn-light btn-lg" target="_blank">
+      Acessar GitHub
+    </a>
+  </div>
+</section>
+
+<!-- Script para alternância de tema -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Verificação robusta para garantir que o botão existe
+    if (!toggleButton) {
+      console.warn('Botão de alternância de tema não foi encontrado no DOM.');
+      return;
+    }
+
+    // Função para aplicar o tema
+    const applyTheme = (isDark: any) => {
+      if (isDark) {
+        body.classList.add('dark-mode');
+        toggleButton.classList.remove('btn-outline-dark');
+        toggleButton.classList.add('btn-outline-light');
+        toggleButton.textContent = '☀️ Modo Claro';
+        toggleButton.setAttribute('aria-pressed', 'true');
+      } else {
+        body.classList.remove('dark-mode');
+        toggleButton.classList.remove('btn-outline-light');
+        toggleButton.classList.add('btn-outline-dark');
+        toggleButton.textContent = '🌙 Modo Escuro';
+        toggleButton.setAttribute('aria-pressed', 'false');
+      }
+    };
+
+    // Verifica se há preferência salva no localStorage
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme === 'dark');
+
+    // Adiciona evento de clique no botão
+    toggleButton.addEventListener('click', () => {
+      const isDark = !body.classList.contains('dark-mode');
+      applyTheme(isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  });
+</script>
