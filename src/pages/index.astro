@@ -1,0 +1,57 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <Navbar />
+  <Hero />
+
+  <!-- Seção Sobre -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Sobre Nós</h2>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h3>Professor Corrêa</h3>
+          <p>
+            Com anos de experiência em desenvolvimento full stack JavaScript e liderança em produtos digitais, Professor Corrêa se destaca pela habilidade de unir tecnologia e educação, capacitando novos desenvolvedores para o mercado.
+          </p>
+          <ul>
+            <li>Desenvolvimento Frontend e Backend</li>
+            <li>Ensino e Mentoria</li>
+            <li>Gestão de Produtos Digitais</li>
+          </ul>
+          <a href="https://github.com/lucascorreaa" class="btn btn-primary mt-3" target="_blank">Saiba Mais</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="/images/professor-correa.jpg" alt="Professor Corrêa" class="img-fluid rounded shadow-lg" />
+        </div>
+      </div>
+      
+      <hr class="my-5" />
+
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+          <img src="/images/suporte-de-domingo.jpg" alt="Suporte de Domingo" class="img-fluid rounded shadow-lg" />
+        </div>
+        <div class="col-md-6">
+          <h3>Suporte de Domingo</h3>
+          <p>
+            A Suporte de Domingo é referência no suporte digital, oferecendo soluções rápidas e eficazes para negócios e projetos digitais.
+          </p>
+          <ul>
+            <li>Atendimento especializado</li>
+            <li>Suporte para sistemas complexos</li>
+            <li>Flexibilidade e disponibilidade</li>
+          </ul>
+          <a href="https://suportededomingo.com.br" class="btn btn-secondary mt-3" target="_blank">Visite o Site</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
